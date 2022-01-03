@@ -1,25 +1,13 @@
 <template>
   <section class="featured-posts">
     <PostPreview
-      id="1"
+      v-for="post in posts"
+      :key="post.id"
+      :id="post.id"
       :is-admin="isAdmin"
-      thumbnail="https://cdn.thewirecutter.com/wp-content/media/2021/03/adopting-a-cat-2048px-06052.jpg?auto=webp&quality=60&crop=1.91:1&width=1200"
-      title="Hello World!"
-      previewText="This is my first post!"
-    />
-    <PostPreview
-      id="1"
-      :is-admin="isAdmin"
-      thumbnail="https://cdn.thewirecutter.com/wp-content/media/2021/03/adopting-a-cat-2048px-06052.jpg?auto=webp&quality=60&crop=1.91:1&width=1200"
-      title="Hello World!"
-      previewText="This is my first post!"
-    />
-    <PostPreview
-      id="1"
-      :is-admin="isAdmin"
-      thumbnail="https://cdn.thewirecutter.com/wp-content/media/2021/03/adopting-a-cat-2048px-06052.jpg?auto=webp&quality=60&crop=1.91:1&width=1200"
-      title="Hello World!"
-      previewText="This is my first post!"
+      :thumbnail="post.thumbnail"
+      :title="post.title"
+      :previewText="post.previewText"
     />
   </section>
 </template>
@@ -35,6 +23,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    posts: {
+      type: Array,
+      required: true,
     },
   },
 };
