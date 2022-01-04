@@ -3,12 +3,16 @@
     <AppControlInput v-model="editedPost.author"> Author Name </AppControlInput>
     <AppControlInput v-model="editedPost.title">Title</AppControlInput>
 
-    <AppControlInput v-model="editedPost.thumbnailLink"
+    <AppControlInput v-model="editedPost.thumbnail"
       >Thumbnail Link</AppControlInput
     >
 
     <AppControlInput control-type="textarea" v-model="editedPost.content"
       >Content</AppControlInput
+    >
+
+    <AppControlInput control-type="textarea" v-model="editedPost.previewText"
+      >Preview Text</AppControlInput
     >
 
     <AppButton type="submit">Save</AppButton>
@@ -24,8 +28,8 @@
 </template>
 
 <script>
-import AppButton from "@/components/ui/AppButton";
-import AppControlInput from "@/components/ui/AppControlInput";
+import AppButton from '@/components/ui/AppButton'
+import AppControlInput from '@/components/ui/AppControlInput'
 export default {
   components: {
     AppButton,
@@ -42,18 +46,21 @@ export default {
       editedPost: this.post
         ? { ...this.post }
         : {
-            author: "",
-            title: "",
-            thumbnailLink: "",
-            content: "",
+            author: '',
+            title: '',
+            thumbnail: '',
+            content: '',
+            previewText: '',
           },
-    };
+    }
   },
   methods: {
-    onSave() {},
+    onSave() {
+      this.$emit('submit', this.editedPost)
+    },
     onCancel() {
-      this.$router.push("/admin");
+      this.$router.push('/admin')
     },
   },
-};
+}
 </script>

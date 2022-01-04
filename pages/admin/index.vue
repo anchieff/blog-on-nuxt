@@ -7,21 +7,26 @@
     </section>
     <section class="existing-posts">
       <h1>Existing Post</h1>
-      <PostList :isAdmin="true" />
+      <PostList :isAdmin="true" :posts="loadedPosts" />
     </section>
   </div>
 </template>
 
 <script>
-import PostList from "@/components/posts/PostList";
-import AppButton from "@/components/ui/AppButton";
+import PostList from '@/components/posts/PostList'
+import AppButton from '@/components/ui/AppButton'
 export default {
   components: {
     PostList,
     AppButton,
   },
-  layout: "admin",
-};
+  layout: 'admin',
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    },
+  },
+}
 </script>
 
 <style scoped>

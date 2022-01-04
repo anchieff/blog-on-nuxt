@@ -1,9 +1,7 @@
 <template>
-  <button
-    class="button"
-    :class="btnStyle"
-    v-bind="$attrs"
-    v-on="$listeners"><slot /></button>
+  <button class="button" :class="btnStyle" v-bind="$attrs" v-on="$listeners">
+    <slot />
+  </button>
 </template>
 
 <script>
@@ -12,19 +10,19 @@ export default {
   props: {
     btnStyle: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 }
 </script>
-
 
 <style scoped>
 .button {
   font: inherit;
   background-color: black;
   color: white;
-  padding: 5px;
+  padding: 5px 20px;
+  border-radius: 0.25rem;
   cursor: pointer;
   border: 1px solid black;
 }

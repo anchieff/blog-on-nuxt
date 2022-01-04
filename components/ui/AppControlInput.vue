@@ -5,12 +5,14 @@
       v-if="controlType === 'input'"
       v-bind="$attrs"
       :value="value"
-      @input="$emit('input', $event.target.value)">
+      @input="$emit('input', $event.target.value)"
+    />
     <textarea
       v-if="controlType === 'textarea'"
       rows="10"
       :value="value"
-      @input="$emit('input', $event.target.value)"></textarea>
+      @input="$emit('input', $event.target.value)"
+    ></textarea>
   </div>
 </template>
 
@@ -20,13 +22,13 @@ export default {
   props: {
     controlType: {
       type: String,
-      default: 'input'
+      default: 'input',
     },
     value: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 }
 </script>
 
@@ -47,6 +49,7 @@ export default {
   box-sizing: border-box;
   font: inherit;
   border: 1px solid #ccc;
+  border-radius: 0.25rem;
   padding: 5px;
 }
 
@@ -56,5 +59,3 @@ export default {
   outline: none;
 }
 </style>
-
-
