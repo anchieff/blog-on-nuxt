@@ -12,6 +12,9 @@ import AdminPostForm from '@/components/admin/AdminPostForm'
 
 export default {
   layout: 'admin',
+  head: {
+    title: 'Add New Post',
+  },
   components: {
     AdminPostForm,
   },

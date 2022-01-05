@@ -4,13 +4,13 @@
       <form>
         <AppControlInput type="email">E-Mail Address</AppControlInput>
         <AppControlInput type="password">Password</AppControlInput>
-        <AppButton type="submit">{{ isLogin ? "Login" : "Sign Up" }}</AppButton>
+        <AppButton type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</AppButton>
         <AppButton
           type="button"
           btn-style="inverted"
           style="margin-left: 10px"
           @click="isLogin = !isLogin"
-          >Switch to {{ isLogin ? "Signup" : "Login" }}</AppButton
+          >Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton
         >
       </form>
     </div>
@@ -18,22 +18,15 @@
 </template>
 
 <script>
-import AppControlInput from "@/components/ui/AppControlInput";
-import AppButton from "@/components/ui/AppButton";
-
 export default {
-  name: "AdminAuthPage",
-  layout: "admin",
-  components: {
-    AppControlInput,
-    AppButton,
-  },
+  name: 'AdminAuthPage',
+  layout: 'admin',
   data() {
     return {
       isLogin: true,
-    };
+    }
   },
-};
+}
 </script>
 
 <style scoped>
