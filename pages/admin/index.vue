@@ -4,6 +4,9 @@
       <AppButton @click="$router.push('/admin/new-post')"
         >Create Post</AppButton
       >
+      <AppButton v-if="isAuth" style="margin-left: 10px" @click="onLogout"
+        >Logout</AppButton
+      >
     </section>
     <section class="existing-posts">
       <h1>Existing Post</h1>
@@ -15,9 +18,19 @@
 <script>
 export default {
   layout: 'admin',
+  middleware: ['check-auth'],
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts
+    },
+    isAuth() {
+      return this.$store.getters.isAuth
+    },
+  },
+  methods: {
+    onLogout() {
+      this.$store.dispatch('logout')
+      this.$router.push('/admin')
     },
   },
 }

@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import axios from 'axios'
 import AdminPostForm from '@/components/admin/AdminPostForm'
 
 export default {
   layout: 'admin',
+  middleware: ['check-auth', 'auth'],
   head: {
     title: 'Add New Post',
   },
